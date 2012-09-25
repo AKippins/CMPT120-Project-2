@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<!--Aaron Kippins
+	Project v0.2 
+	Text Based Game-->
+	<head>
+		<meta charset="utf-8">
+		<title>You're Gonna Be Here A While</title>
+		<style>
+			h1{font-size:30pt;font-style:italic;font-family:times;}
+			body{background-color:Black; color:white;}
+			textarea{background-color:black; color:white;}
+		</style>
+		
+		<script type="text/javascript"> 
+      var score=0;
+      var hasVisitedNorth=false;
+      var hasVisitedWest=false;
+      var hasVisitedEast=false;
+      var hasVisitedSouth=false;
+      function showscore(){
+        alert(score)
+      }  
+    
+			
+			function movement(direction) {
+        if(direction === 1) {
+            //alert("Progress")
+            var msg = "You have moved north";
+            if(!hasVisitedNorth){
+               score=score+5;
+               hasVisitedNorth=true;
+            } 
+            updatetext(msg);
+        } else { 
+           if(direction === 2) {
+               var msg = "You have moved west";
+               if(!hasVisitedWest){
+                 score=score+5;
+                 hasVisitedWest=true;
+                }
+               updatetext(msg);
+            } else { 
+               if(direction === 3) {
+                 var msg = "You have moved east";
+                 score=score+5;
+                 updatetext(msg);
+                } else { 
+                     if(direction === 4) {
+                         var msg = "You have moved south";
+                         score=score+5;
+                         updatetext(msg);
+                      }   
+                  }
+              } 
+          }  
+      }      
+         
+          /*  } else{  
+            if(direction === 1){
+            //alert("Progress")
+            var north_btn_click = "You have moved north";
+            score=+5
+            updatetext(north_btn_click);
+         
+        
+            */
+            
+         /* 
+          var east_btn_click="You have moved east";
+          var south_btn_click="You have moved south";*/
+			//var message;
+			//message="";
+			/*you need to assign the message variable a string
+			Also don't forget the idea that you had about keeping 
+			track of the player by using a grid with X&Y and setting
+			the coordinates to go through if else commands based on
+			the coordinates. Last Don't forget to take a break if you 
+			get stuck  */
+			 
+			
+			/*function move_north(1){
+			alert(north_btn_click); 
+			}
+			
+			function move_west(w){
+			alert(west_btn_click);
+			}
+			*/
+			/*function move_east(e){
+			   alert(east_btn_click);
+			}
+			
+			function move_south(s){
+			   alert(south_btn_click);
+			}
+			*/
+		
+			function updatetext(msg){
+			   var textarea = document.getElementById("tagame");
+			   textarea.value = msg + "\n" + textarea.value;
+			}
+			
+
+		</script>
+	</head>
+	<body>
+		<h1>
+			Welcome to Cerebro!!!
+		</h1>
+		
+		<textarea id="tagame" name="Location" rows="3" cols="36">You wake up in a room with 4 walls and no door, you see a desk with a note on it.		
+		</textarea>
+		
+		<br>	
+		<input type="button"
+		value="North"
+		onclick="movement(1);">
+		
+		
+		<br>
+		<input type="button"
+		value="West"
+		onclick="movement(2);">
+		
+		
+		<input type="button"
+		value="East"
+		onclick="movement(3)">
+		
+		
+		<br>
+		<input type="button"
+		value="South"
+		onclick="movement(4);">
+		
+		<br>
+		<input type="button"
+		value="Score"
+		onclick="showscore();">
+		
+		
+		<br>
+		<a href="mailto:Aaron.Kippins1@marist.edu">Need Help?</a>
+	</body>
+</html>
