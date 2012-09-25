@@ -18,6 +18,7 @@
       var hasVisitedWest=false;
       var hasVisitedEast=false;
       var hasVisitedSouth=false;
+      
       function showscore(){
         alert(score)
       }  
@@ -43,12 +44,19 @@
             } else { 
                if(direction === 3) {
                  var msg = "You have moved east";
-                 score=score+5;
+                 if(!hasVisitedEast){
+                   score=score+5;
+                   hasVisitedEast=true;
+                  }
                  updatetext(msg);
                 } else { 
                      if(direction === 4) {
                          var msg = "You have moved south";
+                        if(!hasVisitedSouth){
                          score=score+5;
+                         hasVisitedSouth=true;
+                        }
+               
                          updatetext(msg);
                       }   
                   }
@@ -56,21 +64,7 @@
           }  
       }      
          
-          /*  } else{  
-            if(direction === 1){
-            //alert("Progress")
-            var north_btn_click = "You have moved north";
-            score=+5
-            updatetext(north_btn_click);
-         
-        
-            */
-            
-         /* 
-          var east_btn_click="You have moved east";
-          var south_btn_click="You have moved south";*/
-			//var message;
-			//message="";
+       
 			/*you need to assign the message variable a string
 			Also don't forget the idea that you had about keeping 
 			track of the player by using a grid with X&Y and setting
@@ -78,23 +72,7 @@
 			the coordinates. Last Don't forget to take a break if you 
 			get stuck  */
 			 
-			
-			/*function move_north(1){
-			alert(north_btn_click); 
-			}
-			
-			function move_west(w){
-			alert(west_btn_click);
-			}
-			*/
-			/*function move_east(e){
-			   alert(east_btn_click);
-			}
-			
-			function move_south(s){
-			   alert(south_btn_click);
-			}
-			*/
+
 		
 			function updatetext(msg){
 			   var textarea = document.getElementById("tagame");
