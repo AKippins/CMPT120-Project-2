@@ -27,7 +27,7 @@
 			function movement(direction) {
         if(direction === 1) {
             //alert("Progress")
-            var msg = "You have moved north";
+            var msg = "You have moved north. You approach the desk to find a note."; 
             if(!hasVisitedNorth){
                score=score+5;
                hasVisitedNorth=true;
@@ -35,7 +35,7 @@
             updatetext(msg);
         } else { 
            if(direction === 2) {
-               var msg = "You have moved west";
+               var msg = "You have moved west. There is a wall here.";
                if(!hasVisitedWest){
                  score=score+5;
                  hasVisitedWest=true;
@@ -43,7 +43,7 @@
                updatetext(msg);
             } else { 
                if(direction === 3) {
-                 var msg = "You have moved east";
+                 var msg = "You have moved east. There is a wall here.";
                  if(!hasVisitedEast){
                    score=score+5;
                    hasVisitedEast=true;
@@ -51,7 +51,7 @@
                  updatetext(msg);
                 } else { 
                      if(direction === 4) {
-                         var msg = "You have moved south";
+                         var msg = "You have moved south. There is a wall here";
                         if(!hasVisitedSouth){
                          score=score+5;
                          hasVisitedSouth=true;
@@ -87,7 +87,7 @@
 			Welcome to Cerebro!!!
 		</h1>
 		
-		<textarea id="tagame" name="Location" rows="3" cols="36">You wake up in a room with 4 walls and no door, you see a desk with a note on it.		
+		<textarea id="tagame" name="Location" rows="4" cols="40">You wake up in a room with 4 walls and no door, you see a desk with a note on it. All that you have is a Compass.		
 		</textarea>
 		
 		<br>	
