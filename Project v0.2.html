@@ -19,6 +19,8 @@
       var hasVisitedEast=false;
       var hasVisitedSouth=false;
       
+      var currentLocation=0
+      
       function showscore(){
         alert(score)
       }  
@@ -33,38 +35,29 @@
                hasVisitedNorth=true;
             } 
             updatetext(msg);
-        } else { 
-           if(direction === 2) {
+        } else if(direction === 2) {
                var msg = "You have moved west. There is a wall here.";
                if(!hasVisitedWest){
                  score=score+5;
                  hasVisitedWest=true;
                 }
                updatetext(msg);
-            } else { 
-               if(direction === 3) {
-                 var msg = "You have moved east. There is a wall here.";
-                 if(!hasVisitedEast){
-                   score=score+5;
-                   hasVisitedEast=true;
-                  }
-                 updatetext(msg);
-                } else { 
-                     if(direction === 4) {
-                         var msg = "You have moved south. There is a wall here";
-                        if(!hasVisitedSouth){
-                         score=score+5;
-                         hasVisitedSouth=true;
-                        }
-               
-                         updatetext(msg);
-                      }   
-                  }
-              } 
-          }  
-      }      
-         
-       
+        } else if(direction === 3) {
+               var msg = "You have moved east. There is a wall here.";
+               if(!hasVisitedEast){
+                 score=score+5;
+                 hasVisitedEast=true;
+                }
+               updatetext(msg);
+        } else if(direction === 4) {
+                var msg = "You have moved south. There is a wall here";
+                if(!hasVisitedSouth){
+                 score=score+5;
+                 hasVisitedSouth=true;
+                }
+               updatetext(msg);
+                    }   
+      }
 			/*you need to assign the message variable a string
 			Also don't forget the idea that you had about keeping 
 			track of the player by using a grid with X&Y and setting
