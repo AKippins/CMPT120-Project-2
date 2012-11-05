@@ -197,6 +197,8 @@ function disable_button_west(){
 function disable_button_east(){
   if (currentLocation === 5){
     document.getElementById('btn3').disabled=true
+  } else if ((currentLocation === 6) && (hasTaken_note=true)){
+      document.getElementById('btn3').disabled=true
   } else if (currentLocation === 8){
       document.getElementById('btn3').disabled=true
   } else if (currentLocation === 12){
@@ -222,7 +224,7 @@ function disable_button_south(){
 
 /*Didn't get this to work
 function cannot_go_msg(){
-  if(currentLocation === 5 && movement(1)){
+  if((currentLocation === 5) && movement(1)){
     var msg = "Moving in that direction isn't an option."
     updateDisplay();
   }  
