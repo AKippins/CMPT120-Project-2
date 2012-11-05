@@ -4,7 +4,9 @@ var hasVisited_8=false;
 var hasVisited_7=false;
 var hasVisited_6=false;
 var hasVisited_12=false;
-//not being used yet var hasTakenNote=false;
+var hasTaken_note=false;
+
+
 
 var currentLocation=0
 
@@ -37,7 +39,7 @@ function movement(direction) {
               currentLocation = 0;
             } else if (currentLocation === 0) {
                 currentLocation = 6
-            } else if (currentLocation === 6) {
+            } else if ((currentLocation === 6) && (hasTaken_note=false)) {
                 currentLocation = 12
             }
   } else if (direction === 4) {
@@ -46,10 +48,7 @@ function movement(direction) {
             } else if (currentLocation === 0) {
                 currentLocation = 8
             } 
-  } else {
-      //var Doesn't work
-      var msg="Moving in that direction isn't an option."
-      //Didn't get this to work cannot_go_msg()
+  } else { var msg="there is a wall here"
       updateDisplay(msg);
     }
   updateLocation();
@@ -63,7 +62,56 @@ function movement(direction) {
 variable currentLocation*/
 function updateLocation() {
   //First room
-  if (currentLocation === 0) {
+  switch(currentLocation){
+    case 0:
+      var msg = "You are in the middle of the room. There is a desk at the north wall of the room." 
+      //updateDisplay(msg);
+      break;
+    case 5:
+      var msg = "You are at the northern part of the room, there there is a desk with a note on it. It looks like it could be important."
+      //updateDisplay(msg);
+      if(!hasVisited_5){
+        score=score+10;
+        hasVisited_5=true;
+      }
+      break;
+    case 6:
+      var msg = "You are at the eastern part of the room, there is a wall here. This wall seems different from the others."
+      //updateDisplay(msg);
+      if(!hasVisited_6){
+        score=score+10;
+        hasVisited_6=true;
+      }
+      break;
+    case 7:
+      var msg = "You are at the western part of the room, there is a wall here."
+      //updateDisplay(msg);
+      if(!hasVisited_7){
+        score=score+10;
+        hasVisited_7=true;  
+      }  
+      break;
+    case 8:
+      var msg = "You are at the southern part of the room, there is a wall here."
+      //updateDisplay(msg);
+      if(!hasVisited_8){
+        score=score+10;
+        hasVisited_8=true;
+      }
+      break;
+    case 12:
+      var msg = "The wall seems to have been some sort of illusion, this room seems similar to the previous one."
+      //updateDisplay(msg);
+      if(!hasVisited_12){
+        score=score+10;
+        hasVisited_12=true;
+      }
+    default: "Moving in that direction isn't an option"
+  }
+  updateDisplay(msg);    
+}
+  
+  /*if (currentLocation === 0) {
     var msg = "You are in the middle of the room. There is a desk at the north wall of the room." 
     updateDisplay(msg);
   } else if(currentLocation === 5) {
@@ -73,7 +121,7 @@ function updateLocation() {
               score=score+10;
               hasVisited_5=true;
             }
-  } else if(currentLocation === 8) {
+  } else if(currentLocation === 8) { 
             var msg = "You are at the southern part of the room, there is a wall here."
             updateDisplay(msg);
             if(!hasVisited_8){
@@ -102,7 +150,7 @@ function updateLocation() {
               hasVisited_12=true;
           }
   }        
-}
+}*/
 
 function updateDisplay(msg){
    var textarea = document.getElementById("tagame");
@@ -222,9 +270,17 @@ function gettext(){
         showscore();
     } else if(prompt.value === "score"){
         showscore();
+    } else if(prompt.value === "Take note"){
+        take_objects(prompt.value);
     } else {
         error_msg();
     }
     
 }
 
+function take_items(){
+  switch(item){
+    case "Take note":
+      hasTaken_note=true
+  }
+}
