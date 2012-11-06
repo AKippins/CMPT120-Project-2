@@ -20,13 +20,13 @@ function showscore(){
 3=East
 4=South*/
 function movement(direction) {
-  if(direction === 1) {
+  if(direction === "North") {
       if (currentLocation === 8) {
         currentLocation = 0;
       } else if (currentLocation === 0) {
         currentLocation = 5
       }
-  } else if (direction === 2) {
+  } else if (direction === "West") {
             if (currentLocation === 12) {
               currentLocation = 6;
             } else if (currentLocation === 6) {
@@ -34,21 +34,21 @@ function movement(direction) {
             } else if (currentLocation === 0) {
                 currentLocation = 7
             }
-  } else if (direction === 3) {
+  } else if (direction === "East") {
             if (currentLocation === 7) {
               currentLocation = 0;
             } else if (currentLocation === 0) {
                 currentLocation = 6
-            } else if ((currentLocation === 6) && (hasTaken_note=false)) {
+            } else if ((currentLocation === 6) && (hasTaken_note=true)) {
                 currentLocation = 12
             }
-  } else if (direction === 4) {
+  } else if (direction === "South") {
             if (currentLocation === 5) {
               currentLocation = 0;
             } else if (currentLocation === 0) {
                 currentLocation = 8
             } 
-  } else { var msg="there is a wall here"
+  } else { var msg="Moving in that direction isn't an option"
       updateDisplay(msg);
     }
   updateLocation();
@@ -197,7 +197,7 @@ function disable_button_west(){
 function disable_button_east(){
   if (currentLocation === 5){
     document.getElementById('btn3').disabled=true
-  } else if ((currentLocation === 6) && (hasTaken_note=true)){
+  } else if ((currentLocation === 6) && (hasTaken_note=false)){
       document.getElementById('btn3').disabled=true
   } else if (currentLocation === 8){
       document.getElementById('btn3').disabled=true
@@ -272,8 +272,8 @@ function gettext(){
         showscore();
     } else if(prompt.value === "score"){
         showscore();
-    } else if(prompt.value === "Take note"){
-        take_objects(prompt.value);
+    } else if((prompt.value === "Take note") && (currentLocation === 5)){
+        take_items(prompt.value);
     } else {
         error_msg();
     }
@@ -281,8 +281,10 @@ function gettext(){
 }
 
 function take_items(){
-  switch(item){
+  var msg="Taken"
+  switch(prompt.value){
     case "Take note":
-      hasTaken_note=true
+      hasTaken_note=true;
   }
+  updateDisplay(msg);
 }
