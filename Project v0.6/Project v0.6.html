@@ -7,11 +7,21 @@
 		<meta charset="utf-8">
 		<title>Don't Worry Your To Blame</title>
 		
-		<script type="text/javascript" src="locations.js"></script>
-		<style type="text/css"        src="style.css"></style>
+		
+		<style type="text/css" src="style.css"></style>
+		<script type="text/javascript" src="GameLogic.js"></script>
+		<script type="text/javascript" src="Navigation.js"></script>
+		<script type="text/javascript" src="Locations.js"></script>
+		<script type="text/javascript">
+		  function updateDisplay(msg){
+        var textarea = document.getElementById("tagame");
+        textarea.value = msg + "\n" + textarea.value;
+}
+		</script>
 		
 	</head>
-	<body>
+<!--TODO in it function-->
+	<body onload="init();">
 		<h1>
 			Welcome to Cerebro.
 		</h1>
@@ -20,7 +30,7 @@
 		You're Gonna Be Here A While...
 		</h2>
 		
-		<textarea id="tagame" name="Location" rows="5" cols="50">You wake up in a room with 4 walls and no door, you see a desk with a note on it. All that you have is a Compass.		
+		<textarea id="tagame" name="Location" rows="5" cols="50">		
 		</textarea>
 		
 		<br>
@@ -69,6 +79,11 @@
 		<input type="button"
 		value="Score"
 		onclick="showscore();">
+		
+		<br>
+		<input type="button"
+		value="Display Inventory"
+		onclick="displayInventory();">
 		
 		
 		<br>
