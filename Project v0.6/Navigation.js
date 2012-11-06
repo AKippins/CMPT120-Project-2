@@ -10,9 +10,18 @@ function movement(direction) {
       } else if (currentLocation === 0) {
         currentLocation = 5
       }
+      if (currentLocation === 3){
+        currentLocation = 4;
+      } else if (currentLocation === 4) {
+        currentLocation = 1
+      }
   } else if (direction === "West") {
-            if (currentLocation === 12) {
-              currentLocation = 6;
+            if (currentLocation === 2) {
+              currentLocation = 4
+            } else if (currentLocation === 4) {
+                currentLocation = 12
+            } else if (currentLocation === 12) {
+                currentLocation = 6;
             } else if (currentLocation === 6) {
                 currentLocation = 0
             } else if (currentLocation === 0) {
@@ -25,6 +34,10 @@ function movement(direction) {
                 currentLocation = 6
             } else if ((currentLocation === 6) && (playerHasNote)) {
                 currentLocation = 12
+            } else if (currentLocation === 12) {
+                currentLocation = 4
+            } else if (currentLocation === 4) {
+                currentLocation = 2
             }
   } else if (direction === "South") {
             if (currentLocation === 5) {
@@ -32,6 +45,11 @@ function movement(direction) {
             } else if (currentLocation === 0) {
                 currentLocation = 8
             } 
+            if (currentLocation === 1){
+              currentLocation = 4;
+            } else if (currentLocation === 4) {
+                currentLocation = 3
+            }
   } else { var msg="Moving in that direction isn't an option"
       updateDisplay(msg);
     }
