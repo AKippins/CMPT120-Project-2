@@ -77,27 +77,3 @@ function location4() {
 
 
 
-function location(_id, _name, _description, _item){
-  this.id           = _id;
-  this.name         = _name;
-  this.description  = _description;
-  this.item         = _item;
-  //this.toString     = toString;
-
-
-  this.toString = function() {
-    var retVal = "";
-    retVal = "[location]"                      + "\n" +
-             "id:" = this.id                   + "\n" +
-             "name:" = this.name               + "\n" +
-             "description:" = this.description + "\n" +
-             "item:" = this.item               + "\n";
-    
-    return retVal;
-    }
-}
-
-function test(){
-  location999 = new location("999", "Mid Room of Room 1", "You are in the middle of the room. There is a desk at the north wall of the room.", "None");
-  updateDisplay(location999);
-}

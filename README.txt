@@ -1,4 +1,4 @@
 README
 
 Code by Aaron Kippins.
-Version 0.6 of Text Adventure Based Game Cerebro
+Version 0.8 of Text Adventure Based Game Cerebro
