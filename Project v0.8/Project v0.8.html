@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<!--Aaron Kippins
+	Project v0.6 
+	Text Based Game-->
+	<head>
+		<meta charset="utf-8">
+		<title>Don't Worry, You're To Blame</title>
+		
+		<!--Style doesn't work-->
+		<!--Style doesn't work-->
+		<!--Style doesn't work-->
+		<!--Style doesn't work-->
+		<!--Style doesn't work-->
+		<style type="text/css" href="style.css"></style>
+		<script type="text/javascript" src="GameLogic.js"></script>
+		<script type="text/javascript" src="Navigation.js"></script>
+		<script type="text/javascript" src="Locations.js"></script>
+		<script type="text/javascript">
+		  function updateDisplay(msg){
+        var textarea = document.getElementById("tagame");
+        textarea.value = msg + "\n" + textarea.value;
+}
+		</script>
+		
+	</head>
+<!--TODO in it function-->
+	<body onload="init();">
+		<h1>
+			Welcome to Cerebro.
+		</h1>
+		
+		<h2>
+		You're Gonna Be Here A While...
+		</h2>
+		
+		<textarea id="tagame" name="Location" rows="5" cols="50">		
+		</textarea>
+		
+		<br>
+		<!--Found on keydown on the internet, 13 is the enter key also 13th key in it's row
+		that allows for enter to do the same as pressing the go button by calling the same function-->
+		<input type="text" 
+		id="textprompt" 
+		name="Enter Command" 
+		size="32" 
+		onKeydown="if(event.keyCode==13) gettext();">
+		
+		<!--Have to figure out how to make button take whats there and 
+		figure out if it is north, south, east, or west-->
+		<input type="button" 
+		value="Go" 
+		onclick="gettext();">
+		
+		
+		<br>	
+		<input type="button"
+		value="North"
+		onclick="movement('North');"
+		id="btn1">
+		
+		
+		<br>
+		<input type="button"
+		value="West"
+		onclick="movement('West');"
+		id="btn2">
+		
+		
+		<input type="button"
+		value="East"
+		onclick="movement('East');"
+		id="btn3">
+		
+		
+		<br>
+		<input type="button"
+		value="South"
+		onclick="movement('South');"
+		id="btn4">
+		
+		<br>
+		<input type="button"
+		value="Score"
+		onclick="showscore();">
+		
+		<br>
+		<input type="button"
+		value="Display Inventory"
+		onclick="displayInventory();">
+		
+		<br>
+		<input type="button"
+		value="Test"
+		onclick="test();">
+		
+		<br>
+		
+    <img src="GameMap.jpg"
+    width="800"
+    height="450"
+    alt="GameMap">
+      
+		<br>
+		<a href="mailto:Aaron.Kippins1@marist.edu">Need Help?</a>
+	</body>
+</html>
