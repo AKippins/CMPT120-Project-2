@@ -4,15 +4,18 @@ var hasVisited_2=false;
 var hasVisited_3=false;
 var hasVisited_4=false;
 var hasVisited_5=false;
-var hasVisited_8=false;
-var hasVisited_7=false;
 var hasVisited_6=false;
-var hasVisited_12=false;
+var hasVisited_7=false;
+var hasVisited_8=false;
+var hasVisited_9=false;
 var playerHasNote=false;
+var playerHasNewspaper=false;
+var playerHasKey=false;
+var playerHasPicture=false;
 
 function init(){
   updateDisplay("You wake up in a room with 4 walls and no door, you see a desk with a note on it. All that you have is a Compass. ")
-  location0();
+  updateDisplay(location0.description);
 }
 
 function showscore(){
@@ -31,199 +34,254 @@ function command_list_help(){
 
 //disable button for extra credit
 function disable_button_north(){
-  if (currentLocation === 5){
-    document.getElementById('btn1').disabled=true
-  } else if (currentLocation === 6){
-      document.getElementById('btn1').disabled=true
-  } else if (currentLocation === 7){
-      document.getElementById('btn1').disabled=true
-  } else if (currentLocation === 12){
-      document.getElementById('btn1').disabled=true
-  } else if (currentLocation === 1){
-      document.getElementById('btn1').disabled=true
-  } else if (currentLocation === 2){
-      document.getElementById('btn1').disabled=true
-  } else {
-      document.getElementById('btn1').disabled=false
+  switch(currentLocation){
+    case 1:
+    case 2:
+    case 4:
+    case 5:
+    case 7:
+    case 8: document.getElementById('btn1').disabled=true
+    break;
+    
+    default:document.getElementById('btn1').disabled=false
   }
-}
+}  
 
 function disable_button_west(){
-  if (currentLocation === 5){
-    document.getElementById('btn2').disabled=true
-  } else if (currentLocation === 7){
-      document.getElementById('btn2').disabled=true
-  } else if (currentLocation === 8){
-      document.getElementById('btn2').disabled=true
-  } else if (currentLocation === 1){
-      document.getElementById('btn2').disabled=true
-  } else if (currentLocation === 3){
-      document.getElementById('btn2').disabled=true
-  } else {
-      document.getElementById('btn2').disabled=false
+  switch(currentLocation){
+    case 1:
+    case 2:
+    case 3:
+    case 8:
+    case 6:document.getElementById('btn2').disabled=true
+    break;
+    
+    default:document.getElementById('btn2').disabled=false
   }
 }
 
 function disable_button_east(){
-  if (currentLocation === 5){
-    document.getElementById('btn3').disabled=true
-  } else if ((currentLocation === 6) && (!playerHasNote)){
-      document.getElementById('btn3').disabled=true
-  } else if (currentLocation === 8){
-      document.getElementById('btn3').disabled=true
-  } else if (currentLocation === 2){
-      document.getElementById('btn3').disabled=true
-  } else if (currentLocation === 3){
-      document.getElementById('btn3').disabled=true
-  } else if (currentLocation === 1){
-      document.getElementById('btn3').disabled=true
-  } else {
-      document.getElementById('btn3').disabled=false
+  switch(currentLocation){
+    case 1:
+    case 4 && (!playerHasNote):
+    case 3:
+    case 6:
+    case 7:
+    case 8: document.getElementById('btn3').disabled=true
+    break;
+    
+    default:document.getElementById('btn3').disabled=false
   }
 }
 
 function disable_button_south(){
-  if (currentLocation === 8){
-    document.getElementById('btn4').disabled=true
-  } else if (currentLocation === 6){
-      document.getElementById('btn4').disabled=true
-  } else if (currentLocation === 7){
-      document.getElementById('btn4').disabled=true
-  } else if (currentLocation === 12){
-      document.getElementById('btn4').disabled=true
-  } else if (currentLocation === 2){
-      document.getElementById('btn4').disabled=true
-  } else if (currentLocation === 3){
-      document.getElementById('btn4').disabled=true
-  } else {
-      document.getElementById('btn4').disabled=false
+  switch(currentLocation){
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:document.getElementById('btn4').disabled=true
+    break;
+    
+    default:document.getElementById('btn4').disabled=false
   }
 }
 
 function gettext(){
   var prompt = document.getElementById("textprompt");
-    if(prompt.value === "N"){
-      movement("North");
-    } else if(prompt.value === "W"){
-        movement("West");
-    } else if(prompt.value === "E"){
-        movement("East");
-    } else if(prompt.value === "S"){
-        movement("South");
-    } else if(prompt.value === "n"){
-        movement("North");
-    } else if(prompt.value === "w"){
-        movement("West");
-    } else if(prompt.value === "e"){
-        movement("East");
-    } else if(prompt.value === "s"){
-        movement("South");
-    } else if(prompt.value === "North"){
-        movement("North");
-    } else if(prompt.value === "West"){
-        movement("West");
-    } else if(prompt.value === "East"){
-        movement("East");
-    } else if(prompt.value === "South"){
-        movement("South");
-    } else if(prompt.value === "north"){
-        movement("North");
-    } else if(prompt.value === "west"){
-        movement("West");
-    } else if(prompt.value === "east"){
-        movement("East");
-    } else if(prompt.value === "south"){
-        movement("South");
-    } else if(prompt.value === "Help"){
-        command_list_help();
-    } else if(prompt.value === "help"){
-        command_list_help();
-    } else if(prompt.value === "Score"){
-        showscore();
-    } else if(prompt.value === "score"){
-        showscore();
-    } else if((prompt.value === "Take Note") && (currentLocation === 5)){
-        take_items("note");
-    } else if((prompt.value === "Take note") && (currentLocation === 5)){
-        take_items("note");
-    } else if((prompt.value === "take note") && (currentLocation === 5)){
-        take_items("note");
-    } else if((prompt.value === "take Note") && (currentLocation === 5)){
-        take_items("note");
-    } else if((prompt.value === "Take") && (currentLocation === 5)){
-        take_items();
-    } else if((prompt.value === "take") && (currentLocation === 5)){
-        take_items();
-    } else if(prompt.value === "Read Note"){
-        read_items("note");
-    } else if(prompt.value === "Read note"){
-        read_items("note");
-    } else if(prompt.value === "read note"){
-        read_items("note");
-    } else if(prompt.value === "read Note"){
-        read_items("note");
-    } else if(prompt.value === "Read"){
-        read_items();
-    } else if(prompt.value === "read"){
-        read_items();
-    } else {
-        error_msg();
-    }   
-}
+    switch(prompt.value){
+      case "N"    :
+      case "n"    :
+      case "North":
+      case "north": movement("North");
+      break;
+   
+      case "W"    :
+      case "w"    :
+      case "West" :
+      case "west" : movement("West");
+      break;
+  
+      case "E"    :
+      case "e"    :
+      case "East" :
+      case "east" : movement("East");
+      break;
+ 
+      case "S"    :
+      case "s"    :
+      case "South":
+      case "south": movement("South");
+      break;
+    
+      case "Help" :
+      case "help" : command_list_help();
+      break;
+  
+      case "Score":
+      case "score": showscore();
+      break;
+  
+      case "Take Note":
+      case "Take note":
+      case "take Note":
+      case "take note": take_items();
+      break;
+      
+      case "Take Newspaper":
+      case "Take newspaper":
+      case "take Newspaper":
+      case "take newspaper":take_items();
+      break;
+      
+      case "Take Key":
+      case "Take key":
+      case "take Key":
+      case "take key": take_items();
+      break;
+      
+      case "Take Picture":
+      case "Take picture":
+      case "take Picture":
+      case "take picture": take_items();
+      break;
+    
+      case "Read Note":
+      case "read note":
+      case "Read note":
+      case "read Note": read_items();
+      break;
+    
+      default   :error_msg();
+  }
+} 
+
 
 function take_items(item){
-  var msg="Taken"
-  switch(item){
-    case "note":
-      playerHasNote=true;
+  var prompt = document.getElementById("textprompt");
+    var msg="Taken"
+      switch(prompt.value){
+      case "Take Note":
+      case "take note":
+      case "Take note":
+      case "take Note": playerHasNote=true;
+                        updateDisplay(item0.description);
       break;
-    default: 
-      var msg="You Cannot Take This"
+      
+      case "Take Newspaper":
+      case "take newspaper":
+      case "Take newspaper":
+      case "take Newspaper": playerHasNewspaper=true;
+                             updateDisplay(item1.description);
+      break;
+      
+      case "Take Key":
+      case "take key":
+      case "Take key":
+      case "take Key": playerHasKey=true;
+                       updateDisplay(item2.description);
+      break;
+      
+      case "Take Picture":
+      case "take picture":
+      case "Take picture":
+      case "take Picture": playerHasPicture=true;
+                            updateDisplay(item3.description);
+      break;
+    
+    default: var msg="You Cannot Take This"
   }
   updateDisplay(msg);
 }
 
 function read_items(item){
-  switch(item){
-    case "note":
-      var msg="Gonna Do This Later If It Works"
+  var prompt = document.getElementById("textprompt");
+    switch(prompt.value){
+      case "Read Note":
+      case "read note":
+      case "Read note":
+      case "read Note": updateDisplay(item0.description)
       break;
+      
+      case "Read Newspaper":
+      case "read newspaper":
+      case "Read newspaper":
+      case "read Newspaper": updateDisplay(item1.description)
+      break;
+   
     default:
       var msg="You Cannot Read This"  
+      updateDisplay(msg);
   }
-  updateDisplay(msg);
 }
 
 function updateLocation(){
   switch(currentLocation){
-    case 0: location0();
+    case 0: updateDisplay(location0.description);
     break;
     
-    case 5: location5();
+    case 1: updateDisplay(location1.description);
+            if (!hasVisited_1){
+              score=score+5
+            }
+            hasVisited_1=true
     break;
     
-    case 6: location6();
+    case 2: updateDisplay(location2.description);
+            if (!hasVisited_2){
+              score=score+5
+            }
+            hasVisited_2=true
     break;
     
-    case 7: location7();
+    case 3: updateDisplay(location3.description);
+            if (!hasVisited_3){
+              score=score+5
+            }
+            hasVisited_3=true
     break;
     
-    case 8: location8();
+    case 4: updateDisplay(location4.description);
+            if (!hasVisited_4){
+              score=score+5
+            }
+            hasVisited_4=true
     break;
     
-    case 12: location12();
+    case 5: updateDisplay(location5.description);
+            if (!hasVisited_5){
+              score=score+5
+            }
+            hasVisited_5=true
     break;
    
-    case 1: location1();
+    case 6: updateDisplay(location6.description);
+            if (!hasVisited_6){
+              score=score+5
+            }
+            hasVisited_6=true
     break;
    
-    case 2: location2();
+    case 7: updateDisplay(location7.description);
+            if (!hasVisited_7){
+              score=score+5
+            }
+            hasVisited_7=true
     break;
    
-    case 3: location3();
+    case 8: updateDisplay(location8.description);
+            if (!hasVisited_8){
+              score=score+5
+            }
+            hasVisited_8=true
     break;
    
-    case 4: location4();
+    case 9: updateDisplay(location9.description);
+            if (!hasVisited_9){
+              score=score+5
+            }
+            hasVisited_9=true
     break;
    
     default: 
@@ -232,11 +290,17 @@ function updateLocation(){
 }
 
 function displayInventory(){
-  if (playerHasNote){ havenote="\nNote"
-    updateDisplay("You have these items in your possession:" + havenote);
+  if (playerHasNote){
+    updateDisplay("You have these items in your possession:" + "\n" + item0.name);
+  } if (playerHasNewspaper){
+    updateDisplay(item1.name);
+  } if (playerHasKey){
+    updateDisplay(item2.name);
+  } if (playerHasPicture){
+    updateDisplay(item3.name);
   } else {
       updateDisplay("You have these items in your possession:" + " Nothing");
-    } 
+  } 
   
 }
 
