@@ -1,58 +1,38 @@
-var currentLocation=0
-
 /*This function regulates the movement control 
 In this section the location is being monitored using the global
 variable currentLocation*/
+var currentLocation = 0;
+var North = 0;
+var South = 1;
+var East  = 2;
+var West  = 3;
+var nav = [     // N  S  E  W
+		   /*0*/ [ 1, 3, 4, 2], 
+		   /*1*/ [-1, 0,-1,-1],
+		   /*2*/ [-1,-1, 0,-1],	   
+		   /*3*/ [ 0,-1,-1,-1],
+		   /*4*/ [-1,-1, 5, 0],
+		   /*5*/ [-1,-1, 9, 4],
+		   /*6*/ [ 9,-1,-1,-1],
+		   /*7*/ [-1,-1,-1, 9],
+		   /*8*/ [-1, 9,-1,-1],
+		   /*9*/ [ 8, 6, 7, 5],
+		   /*10*/[-1,-1,-1,-1],
+		   /*11*/[-1,-1,-1,-1],
+		   /*12*/[-1,-1,-1,-1]];
+
+
+
+
+
+
 function movement(direction) {
-  if(direction === "North") {
-      if (currentLocation === 3) {
-        currentLocation = 0;
-      } else if (currentLocation === 0) {
-        currentLocation = 1
-      }
-      if (currentLocation === 6){
-        currentLocation = 9;
-      } else if (currentLocation === 9) {
-        currentLocation = 8
-      }
-  } else if (direction === "West") {
-            if (currentLocation === 7) {
-              currentLocation = 9
-            } else if (currentLocation === 9) {
-                currentLocation = 5
-            } else if (currentLocation === 5) {
-                currentLocation = 4;
-            } else if (currentLocation === 4) {
-                currentLocation = 0
-            } else if (currentLocation === 0) {
-                currentLocation = 2
-            }
-  } else if (direction === "East") {
-            if (currentLocation === 2) {
-              currentLocation = 0;
-            } else if (currentLocation === 0) {
-                currentLocation = 4
-            } else if ((currentLocation === 4) && (playerHasNote)) {
-                currentLocation = 5
-            } else if (currentLocation === 5) {
-                currentLocation = 9
-            } else if (currentLocation === 9) {
-                currentLocation = 7
-            }
-  } else if (direction === "South") {
-            if (currentLocation === 1) {
-              currentLocation = 0;
-            } else if (currentLocation === 0) {
-                currentLocation = 3
-            } 
-            if (currentLocation === 8){
-              currentLocation = 9;
-            } else if (currentLocation === 9) {
-                currentLocation = 6
-            }
-  } else { var msg="Moving in that direction isn't an option"
-      updateDisplay(msg);
-    }
+  var newLocation = nav[currentLocation][direction];
+    if (newLocation === -1){
+      updateDisplay("Moving in that direction isn't an option.");	
+	} else {
+	  currentLocation = newLocation;
+	}
   updateLocation();
   disable_button_north();
   disable_button_west();

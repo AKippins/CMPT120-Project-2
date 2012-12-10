@@ -25,7 +25,6 @@
 			textarea.scrollTop = textarea.scrollHeight;
         }
 		</script>
-		
 	</head>
 	<body onload="init();">
 		<h1>
@@ -36,7 +35,7 @@
 		You're Gonna Be Here A While...
 		</h2>
 		
-		<textarea id="tagame" name="Location" rows="15" cols="100"></textarea>
+		<textarea id="tagame" name="Location" rows="16" cols="125"></textarea>
 		
 		<br>
 		<!--Found on keydown on the internet, 13 is the enter key also 13th key in it's row
@@ -55,27 +54,27 @@
 		<br>	
 		<input type="button"
 		value="North"
-		onclick="movement('North');"
+		onclick="movement(North);"
 		id="btn1">
 		
 		
 		<br>
 		<input type="button"
 		value="West"
-		onclick="movement('West');"
+		onclick="movement(West);"
 		id="btn2">
 		
 		
 		<input type="button"
 		value="East"
-		onclick="movement('East');"
+		onclick="movement(East);"
 		id="btn3">
 		
 		
 		<br>
 		<input type="button"
 		value="South"
-		onclick="movement('South');"
+		onclick="movement(South);"
 		id="btn4">
 		
 		<br>
@@ -86,22 +85,14 @@
 		<br>
 		<input type="button"
 		value="Display Inventory"
-		onclick="displayInventory();">
-		
-		<br>
-		<br>
-		
-		<input type="button"
-		value="Test"
-		onclick="take_items('take newspaper');">
-		<br>
-		
+		onclick="displayInventory();">		
 		
 		<img src="GameMap.jpg"
-		width="800"
-		height="450"
+		width="1600"
+		height="300"
 		alt="GameMap">
-      
+		
+		
 		<br>
 		<a href="mailto:Aaron.Kippins1@marist.edu">Need Help?</a>
 	</body>

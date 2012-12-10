@@ -23,6 +23,7 @@ var hasOpenedSafe=false;
 function init(){
   updateDisplay("You wake up in a room with 4 walls and no door, There is a light coming from the ceiling. You see a desk with a note on it. All that you have is a Compass.")
   updateDisplay(location0.description);
+  currentLocation=0
 }
 
 function showscore(){
@@ -35,7 +36,7 @@ function error_msg(){
 }
 
 function command_list_help(){
-  var msg = "Move North: N, n, North, or north \nMove West: W, w, West, or west\nMove East: E, e, East, or east\nMove South: S, s, South, or south\nTake Item: Take, take\nRead Item: Read, read"
+  var msg = "Move North: N, n, North, or north \nMove West: W, w, West, or west\nMove East: E, e, East, or east\nMove South: S, s, South, or south\nTake Item: Take, take\nRead Item: Read, read\nOpen Object: Open, open\nReset Game: Reset, reset"
   updateDisplay(msg);
 }
 
@@ -101,25 +102,25 @@ function gettext(){
       case "N"    :
       case "n"    :
       case "North":
-      case "north": movement("North");
+      case "north": movement(North);
       break;
    
       case "W"    :
       case "w"    :
       case "West" :
-      case "west" : movement("West");
+      case "west" : movement(West);
       break;
   
       case "E"    :
       case "e"    :
       case "East" :
-      case "east" : movement("East");
+      case "east" : movement(East);
       break;
  
       case "S"    :
       case "s"    :
       case "South":
-      case "south": movement("South");
+      case "south": movement(South);
       break;
     
       case "Help" :
@@ -139,7 +140,12 @@ function gettext(){
       case "Take Newspaper":
       case "Take newspaper":
       case "take Newspaper":
-      case "take newspaper":take_items();
+      case "take newspaper":if (currentLocation=6){
+	                          take_items();
+							  } else {
+							   var msg="You Cannot Take This"
+							   updateDisplay(msg)
+							 }		
       break;
       
       case "Take Key":
@@ -183,8 +189,26 @@ function gettext(){
       case "Open safe":
       case "open Safe": open_object();
       break;
-	  
-      default   :error_msg();
+
+      case "Reset":
+      case "reset":init();
+      break;	  
+	 
+	 case "Yes":
+	 case "yes":updateDisplay(location12.description_2nd);
+	            gameOver();
+	            
+	 break;
+	 
+	 case "No":
+	 case "no":updateDisplay(location12.description)
+	           updateDisplay(location12.description_3rd);
+			   updateDisplay(location12.description_4th);
+	           currentLocation=12
+			   gameOver();
+	 break;
+	 
+     default   :error_msg();
   }
 } 
 
@@ -204,16 +228,23 @@ function take_items(item){
       case "Take Newspaper":
       case "take newspaper":
       case "Take newspaper":
-      case "take Newspaper": playerHasNewspaper=true;
-	                         currentLocation=10;
+	  case "take Newspaper":playerHasNewspaper=true;
+							 currentLocation=10;
 							 if ((playerHasLightsaber) && (playerHasPortalGun)){
 							   updateDisplay(location10.description_4th)
+							   currentLocation=11;
+							   updateDisplay(location11.description)
 							 } else if (playerHasLightsaber){
-							     updateDisplay(location10.description_3rd)
+								 updateDisplay(location10.description_3rd)
+								 currentLocation=11;
+								 updateDisplay(location11.description)
 							 } else if (playerHasPortalGun) {
-                                 updateDisplay(location10.description_2nd);
+								 updateDisplay(location10.description_2nd);
+								 currentLocation=11;
+								 updateDisplay(location11.description)
 							 } else {
 								 updateDisplay(location10.description)
+								 gameOver();
 							 }
       break;
       
@@ -401,8 +432,14 @@ function displayInventory(){
   
 }
 
-
-
+function gameOver(){
+  document.getElementById('btn1').disabled=true
+  document.getElementById('btn2').disabled=true
+  document.getElementById('btn3').disabled=true
+  document.getElementById('btn4').disabled=true
+  updateDisplay("Wanna Play Again? Type Reset.")
+  
+}
 
 
 
