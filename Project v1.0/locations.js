@@ -24,9 +24,9 @@ function locale(_id, _name, _description, _item, _description_2nd, _item_2nd, _d
              "description:"                                    + this.description         + "\n" +
              "item:"                                           + this.item                + "\n" +
              "description after special situation occurs: "    + this.description_2nd     + "\n" +
-			 "item2:"                                          + this.item_2nd            + "\n" +
-			 "description if there's a second item:"           + this.description_3rd     + "\n" +
-			 "description for after the second item is taken:" + this.description_4th     + "\n" ;
+			       "item2:"                                          + this.item_2nd            + "\n" +
+		      	 "description if there's a second item:"           + this.description_3rd     + "\n" +
+	       		 "description for after the second item is taken:" + this.description_4th     + "\n" ;
     return retVal;
   }   
 }
