@@ -5,89 +5,206 @@
 	Text Based Game-->
 	<head>
 		<meta charset="utf-8">
-		<title>Don't Worry, You're To Blame</title>
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen"></style>
+		<title>Where Am I???</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen"/>
+		<script>
+			!function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+				if(!d.getElementById(id)){
+					js=d.createElement(s);
+					js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			}(document, 'script', 'twitter-wjs');
+		</script>
+		<script type="text/javascript">
+ 			(function() {
+    			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    			po.src = 'https://apis.google.com/js/platform.js';
+    			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  			})();
+		</script>
+
 		<script type="text/javascript" src="GameLogic.js"></script>
 		<script type="text/javascript" src="Navigation.js"></script>
 		<script type="text/javascript" src="Locations.js"></script>
 		<script type="text/javascript" src="Items.js"></script>
 		<script type="text/javascript">
-		 
+		
 		function updateDisplay(msg){
 			var textarea = document.getElementById("tagame");
-            textarea.value = textarea.value + "\n" + msg;			
+            textarea.value = textarea.value + "\n" + msg + "\n";			
 			textarea.scrollTop = textarea.scrollHeight;
         }
 		</script>
+		
 	</head>
 	<body onload="init();">
-		<h1>
-		Welcome to Cerebro.
-		</h1>
-		
-		<h2>
-		You're Gonna Be Here A While...
-		</h2>
-		
-		<textarea id="tagame" name="Location" rows="10%" cols="100%"></textarea>
-		
-		<br>
-		<!--Found on keydown on the internet, 13 is the enter key also 13th key in it's row
-		that allows for enter to do the same as pressing the go button by calling the same function-->
-		<input type="text" 
-		id="textprompt" 
-		name="Enter Command" 
-		size="32" 
-		onKeydown="if(event.keyCode==13) gettext();">
-		
-		<input type="button" 
-		value="Go" 
-		onclick="gettext();">
-		
-		
-		<br>	
-		<input type="button"
-		value="North"
-		onclick="movement(North);"
-		id="btn1">
-		
-		
-		<br>
-		<input type="button"
-		value="West"
-		onclick="movement(West);"
-		id="btn2">
-		
-		
-		<input type="button"
-		value="East"
-		onclick="movement(East);"
-		id="btn3">
-		
-		
-		<br>
-		<input type="button"
-		value="South"
-		onclick="movement(South);"
-		id="btn4">
-		
-		<br>
-		<input type="button"
-		value="Score"
-		onclick="showscore();">
-		
-		<br>
-		<input type="button"
-		value="Display Inventory"
-		onclick="displayInventory();">		
-		
-		<img src="GameMap.jpg"
-		width="100%"
-		height="50%"
-		alt="GameMap">
-		
-		
-		<br>
-		<a href="mailto:AKippins@hotmail.com">Need Help?</a>
+
+		<div id="page-wrap">
+
+			<div id="header">
+				<a href="Project v1.0.html"><img src="webgraf/logopurp.png" alt="Logo" class="logo"/></a>
+				<div id="menu">
+					<div id="letterpress2">
+						<ul id="mainmenu">	
+							<li><a href="">Test 1</a></li>
+							<li><a href="">Test 2</a></li>
+							<li><a href="">Test 3</a></li>
+							<li><a href="">Test 4</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="body">
+				<div id="content">
+					<div id="letterpress">
+						<h1>Welcome to Cerebro.</h1>
+
+						<h2>You're Gonna Be Here A While...</h2>
+						<br>
+
+						<textarea id="tagame"></textarea>
+						<br>
+						<!--Found on keydown on the internet, 13 is the enter key also 13th key in it's row
+						that allows for enter to do the same as pressing the go button by calling the same function-->
+						<input type="text" 
+						id="textprompt" 
+						name="Enter Command" 
+						size="32" 
+						onKeydown="if(event.keyCode==13) gettext();"
+						class="button"
+						>
+						
+						<input type="button" 
+						value="Go" 
+						onclick="gettext();"
+						class="button"
+						>
+						
+						
+						<br>	
+						<input type="button"
+						value="North"
+						onclick="movement(North);"
+						id="btn1"
+						class="button"
+						>
+						
+						
+						<br>
+						<input type="button"
+						value="West"
+						onclick="movement(West);"
+						id="btn2"
+						class="button"
+						>
+						
+						
+						<input type="button"
+						value="East"
+						onclick="movement(East);"
+						id="btn3"
+						class="button"
+						>
+						
+						
+						<br>
+						<input type="button"
+						value="South"
+						onclick="movement(South);"
+						id="btn4"
+						class="button"
+						>
+						
+						<br>
+						<input type="button"
+						value="Score"
+						onclick="showscore();"
+						class="button"
+						>
+						
+						<br>
+						<input type="button"
+						value="Display Inventory"
+						onclick="displayInventory();"
+						class="button"
+						>		
+						
+						<br>
+
+						<img src="GameMap.jpg"
+						alt="GameMap"
+						>
+						
+						<br>
+						<a href="mailto:AKippins@hotmail.com">Need Help?</a>
+						<br>
+						<br>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin eros libero, sit amet tempus augue semper id. Proin vel enim quam. Nam luctus est sed purus interdum auctor. Nunc faucibus tellus at sem placerat tristique. Praesent eget odio ut lectus pharetra congue non nec tortor. Nunc laoreet risus ut quam rutrum ullamcorper. Proin euismod velit dapibus quam mattis, ac condimentum ante volutpat. Fusce tellus mi, venenatis in lectus a, viverra porttitor arcu. Donec eget auctor dolor. Sed interdum ullamcorper leo, vitae egestas erat accumsan sodales. Donec suscipit nibh ut est semper ultrices. Nullam ut ullamcorper massa. Duis id nulla nulla. Pellentesque ut quam auctor, fringilla purus a, semper ligula. Cras gravida pellentesque neque eget condimentum.
+							<br>
+							<br>
+							Ut hendrerit nisi turpis, vel auctor erat dignissim eu. Sed quis suscipit lacus. Proin nunc erat, ultricies congue tempor a, pellentesque ac tortor. Morbi mollis venenatis nisi nec faucibus. Donec lobortis justo nunc, vel pulvinar ipsum facilisis sed. Suspendisse potenti. Cras metus lacus, tristique a pellentesque nec, dignissim eget enim.
+							<br>
+							<br>
+							Mauris eleifend erat sed leo viverra ullamcorper. Mauris iaculis auctor odio, eu pulvinar est viverra nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam tempus ligula nec ipsum venenatis ultrices. Aliquam leo tellus, euismod a libero et, sodales sagittis nulla. Donec ac lorem at purus egestas porttitor. Morbi pharetra elit vitae turpis blandit, at pellentesque nibh semper. Mauris eget laoreet metus. Donec tempus sodales varius. Duis consectetur cursus nulla, tempus accumsan tortor sodales eget. Ut non felis nec lorem pellentesque mollis ut at risus. Nullam ut lectus tristique, placerat purus posuere, vehicula nisl. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus ut odio eget lorem sollicitudin rhoncus. Nullam placerat molestie accumsan.
+							<br>
+							<br>
+							Phasellus dapibus commodo neque, eu rutrum orci ullamcorper at. Pellentesque ac est ultricies, pharetra lectus at, laoreet erat. Proin vitae leo at sem tincidunt faucibus. Maecenas ante dolor, ornare in mauris nec, adipiscing sollicitudin libero. Ut ut bibendum turpis. Vestibulum ac risus aliquam, ornare magna in, imperdiet tellus. Cras et mauris a nunc lacinia euismod a elementum augue. Quisque nec gravida sapien, vitae molestie sem. Vivamus ac velit volutpat, dictum quam non, aliquet nulla.
+							<br>
+							<br>
+							Praesent cursus metus lectus, sit amet dignissim risus pharetra vitae. Donec nisl dui, gravida a elit nec, ultrices dapibus lectus. Pellentesque sit amet justo fringilla, placerat lorem eu, hendrerit nulla. Quisque semper est vel blandit tempor. Maecenas venenatis turpis id euismod posuere. Cras nulla urna, mattis ut eleifend vitae, laoreet ac libero. Nulla nec scelerisque eros, eget blandit neque. Fusce sed neque at mi tincidunt dictum non a risus.
+							<br>
+							<br>
+							Duis eu lacinia eros. Morbi volutpat a est eu placerat. Fusce urna nibh, volutpat vel tellus adipiscing, vestibulum placerat libero. Donec id urna in sem tempus tempor eget id sapien. Aenean id metus vestibulum, faucibus risus quis, malesuada nisi. Morbi eu accumsan justo, et sagittis turpis. Nullam at egestas lorem. Nam nec massa in metus ornare egestas non quis erat. Integer lorem purus, hendrerit a libero vitae, semper scelerisque nisi. Aliquam a feugiat ipsum, nec pretium risus. Proin urna arcu, feugiat id sagittis nec, volutpat id mauris.
+							<br>
+							<br>
+							Phasellus fringilla, eros at venenatis facilisis, dui nulla sodales diam, ac pharetra lorem nisi sed neque. Nunc adipiscing lacinia nulla. Aenean rutrum velit sit amet metus dignissim, ac semper massa ullamcorper. Praesent et turpis elit. Donec ut pellentesque nisi, a rutrum tortor. Praesent nec sapien ligula. Duis accumsan sit amet leo molestie aliquet. Etiam pretium tristique facilisis. Fusce tincidunt, lorem non mollis pretium, neque diam ornare quam, eget venenatis quam erat non nisi. Nulla ac tellus urna. Integer dapibus facilisis lorem eu dapibus. Etiam in elit sit amet velit gravida pharetra. Duis ullamcorper bibendum orci et gravida.
+							<br>
+							<br>
+							Sed condimentum condimentum elementum. Vivamus tincidunt nec risus ut ullamcorper. In suscipit, orci sed congue aliquam, sem ipsum ullamcorper urna, facilisis mollis ante tellus at est. In a velit convallis, ultricies erat in, volutpat odio. Aenean ornare est quis sapien sodales, ut ultricies nisl ultricies. Aenean eleifend neque vitae placerat lacinia. Etiam tincidunt nibh sit amet odio tristique sagittis. Nulla sit amet odio in arcu hendrerit interdum a id lectus. Donec eu feugiat lacus. Aliquam scelerisque lacus id diam tincidunt feugiat semper eget massa. Nulla facilisi.
+							<br>
+							<br>
+							Aenean scelerisque suscipit ante, eu tristique quam ornare vel. Nam mauris neque, porttitor in risus sed, aliquet feugiat enim. Quisque faucibus orci a enim auctor, ut cursus magna placerat. Fusce consequat mattis nulla et hendrerit. Phasellus risus justo, ultrices facilisis tempus et, dapibus et magna. Donec porta tincidunt risus vitae congue. Curabitur quis iaculis elit. Ut in diam vitae felis cursus auctor. Sed rhoncus semper feugiat. Vestibulum vitae tellus sagittis, faucibus ipsum ut, fringilla est. Vivamus et eros ac risus ornare mollis. Mauris in metus suscipit, bibendum lacus quis, rutrum enim. Aenean vel suscipit nunc.
+							<br>							
+							<br>
+							In commodo urna eget diam consectetur condimentum. Quisque ac luctus elit, nec dignissim ipsum. Praesent dolor turpis, bibendum non vehicula nec, adipiscing eu risus. Sed elementum dapibus sollicitudin. In eleifend sed purus eu ultricies. Phasellus rutrum bibendum mi a vestibulum. Sed sit amet ante eros. Nunc vitae fermentum ante.
+							<br>
+							<br>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="subfooter">
+				<div id ="copyright"
+					<h4>Mr.Kippins Website In Progress</h4>
+				</div>
+			</div>
+
+			<div id="footer">
+				<div id="block1">
+					<ul>
+						<li><a href="">Test 1</a></li>
+						<li><a href="">Test 2</a></li>
+						<li><a href="">Test 3</a></li>
+						<li><a href="">Test 4</a></li>
+						<li><a href="">Test 5</a></li>
+					</ul>
+				</div>
+				<div id="block2">
+					<h1>Here's some random text</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet faucibus lacus, id cursus ante. Integer sollicitudin lacinia tincidunt. Vestibulum vestibulum ultricies ultrices. Nulla facilisi. Quisque fermentum id ante id suscipit. Integer pretium accumsan leo eget dictum. Ut suscipit libero varius lacus tempor sodales. Praesent consequat varius neque, et pulvinar metus suscipit et. </p>
+				</div>
+				<div id="block3">
+					<a href="https://twitter.com/MrKippins" class="twitter-follow-button" data-show-count="false">Follow @MrKippins</a>
+
+					<g:follow href="https://plus.google.com/{pageId}" rel="{relationshipType}"></g:follow>
+				</div>
+			</div>	
+		</div>
 	</body>
 </html>

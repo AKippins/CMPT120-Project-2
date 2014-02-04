@@ -21,7 +21,8 @@ var hasOpenedHatch=false;
 var hasOpenedSafe=false;
 
 function init(){
-  updateDisplay("You wake up in a room with 4 walls and no door, There is a light coming from the ceiling. You see a desk with a note on it. All that you have is a Compass.")
+  document.getElementById("tagame").value="You wake up in a room with 4 walls and no door, There is a light coming from the ceiling. You see a desk with a note on it. All that you have is a Compass." + "\n";
+  //updateDisplay("You wake up in a room with 4 walls and no door, There is a light coming from the ceiling. You see a desk with a note on it. All that you have is a Compass.");
   updateDisplay(location0.description);
   currentLocation=0;
   document.getElementById('btn1').disabled=false
@@ -96,10 +97,16 @@ function disable_button_west(){
 function disable_button_east(){
   switch(currentLocation){
     case 1:
-    case 3:
+    case 3: document.getElementById('btn3').disabled=true
+    break;
+
     case 4: if (!playerHasNote){
               document.getElementById('btn3').disabled=true
+            } else {
+              document.getElementById('btn3').disabled=false
             }
+    break;
+    
     case 6:
     case 7:
     case 8: document.getElementById('btn3').disabled=true
@@ -275,8 +282,12 @@ function gettext(){
       case "Open Safe":
       case "open safe":
       case "Open safe":
-      case "open Safe": if (currentLocation==8 && !hasOpenedSafe){
+      case "open Safe": if (currentLocation==8 && !hasOpenedSafe && playerHasKey){
                           open_object();
+                          cleartext();
+                        } else if (currentLocation==8 && !hasOpenedSafe && !playerHasKey){
+                          var msg="I don't have a Key to open this with."
+                          updateDisplay(msg);
                           cleartext();
                         } else {
                           var msg="What are you trying to open, that isn't an object here?!?!?!?";
@@ -291,7 +302,7 @@ function gettext(){
       break;	  
 	 
     	case "Yes":
-	    case "yes":if (currentLocation==12){
+	    case "yes":if (currentLocation==11){
                   updateDisplay(location12.description_2nd);
 	                gameOver();
                   cleartext();
@@ -304,8 +315,8 @@ function gettext(){
 	    break;
 	 
 	    case "No":
-	    case "no":if (currentLocation==12){
-                  updateDisplay(location12.description)
+	    case "no":if (currentLocation==11){
+                  updateDisplay(location12.description);
 	                updateDisplay(location12.description_3rd);
 			            updateDisplay(location12.description_4th);
 	                currentLocation=12;

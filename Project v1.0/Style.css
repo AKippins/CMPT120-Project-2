@@ -1,4 +1,277 @@
-h1{font-size:30pt; font-style:italic; font-family:times;}
-body{background-color:Black; color:white;}
-textarea{font-size:15pt; background-color:black; color:white; font-style:italic;}
-input{background-color:black; color:white; font-style:italic;}
+@font-face {
+font-family: Razer;
+src: url(fonts/RAZEROBLIQUE.ttf);
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, cite, code, em, img, del, ins, q,  small, strong, sub, sup, tt, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+	list-style: none;
+}
+
+html {
+	background: url(webgraf/background.jpg);
+}
+
+h1 {
+	font-size:30pt; 
+	font-style:italic; 
+	font-family:Razer;
+}
+
+h2 {
+	font-size: 15pt;
+	font-style:italic; 
+	font-family:Razer;
+}
+
+
+textarea {
+	font-size:15pt; 
+	background-color:black; 
+	color:white; 
+	width:940px;
+	height:250px;
+	border-color: rgba(192,192,192,0.3); 
+	border-radius:10px;
+	font-family:Razer;
+}
+
+img {
+	width:800px;
+	height:190px;
+	border-color: rgba(192,192,192,0.3); 
+	border-radius:10px;
+}
+
+:focus {
+	outline: 0;
+}
+
+
+#page-wrap {
+	margin-right: auto;
+	margin-left: auto;
+	width:100%;
+	text-align:center;
+}
+
+#header {
+	background: url(webgraf/headerbg.jpg) center no-repeat;
+	width: 100%;
+	height:203px;
+	display: block;
+}
+
+#header .logo {
+	height:155px;
+	width:300px;
+	position: absolute; 
+	display: block;
+	padding-top: 2px;
+	padding-left: 260px;
+}
+
+#menu { 
+	padding-top: 160px;
+	width:903px;
+	margin-left: auto;
+	margin-right: auto;
+	height:43px; 
+} 
+
+#letterpress {
+	font-family: Razer;
+	color: #292626;
+	text-shadow: 0px 2px 1px #6A6E6A;
+}
+
+#mainmenu { 
+	position: absolute;
+	padding-left: 40px;
+	list-style: none; 
+	height: 43px; 
+	width: 100%; /* menu shape’s width */
+	background: url(webgraf/menubg.png) no-repeat 0 0; /* menu shape */
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+} 
+
+#mainmenu li a { 
+	float: left; 
+	display: inline-block; 
+	height: 43px; 
+	padding: 10px 66px 7px 66px; /*paddings for text positioning*/
+	background: none;  
+	text-decoration: none;
+	font-size: 20px; 
+	text-align:center;
+	font-family: Razer;
+	color: #4D4D4D;
+	text-shadow: 0px 2px 1px #E3E3E3;
+
+} 
+
+#mainmenu li:hover a { 
+	background: url(webgraf/menuactive.jpg) no-repeat 0 0; 
+	background-size: 100% 41px; /* to stretch the hover background */
+	-o-background-size: 100% 41px; /* for Opera 9.5 */
+	-webkit-background-size: 100% 41px; /* for Safari 3 and Chrome 1 */
+	-khtml-background-size: 100% 41px; /* for Konqueror */
+	-moz-background-size: 100% 41px; /* for firefox 3.6 */
+	color:#fff8de; 
+} 
+
+#body {
+	background: url(webgraf/bodybg.jpg) center repeat-y;
+	width: 100%;
+	color: white;
+	float: left;
+	clear: both;
+}
+
+#body #content{
+	width:940px; 
+	margin:0 auto;
+	position: relative;
+	}
+
+#body #content p{
+	line-height: 20px;
+	color: black;
+	}
+
+.button {
+	border-color: rgba(192,192,192,0.3);
+	background-color:black; 
+	color:white; 
+	border-radius:10px; 
+	font-family:Razer;
+}
+
+#subfooter {
+	background: url(webgraf/copyrightbg.jpg)bottom no-repeat;
+	width: 100%;
+	height:34px;
+	margin-right: auto; 
+	margin-left: auto;
+	display: block;
+	clear: both;
+
+}
+
+#copyright{
+	text-align: left;
+	text-indent: 230px;
+	padding-top: 7px;
+	color: white;
+	font-family: razer;
+}
+
+#footer {
+	background: url(webgraf/footerbg.jpg)bottom center no-repeat;
+	width: 100%;
+	height: 239px;
+	margin: 0 auto;
+}
+
+#footer h1 {
+	color:#fd7700;
+	font-family: Razer;
+	letter-spacing: 0;
+	text-shadow: 1px 1px 1px #000;
+	font-size: 20px;
+}
+
+#footer #block1 {
+	position:relative;
+	overflow: hidden;
+}
+
+#footer #block1 ul {
+	font: 11px/20px Razer;
+	color:#b2b2b2;
+	letter-spacing:0.02em;
+	}
+
+#footer #block1 ul li {
+	list-style-type: none; 
+	font: 12px/24px Razer;
+	}
+#footer #block1 ul li a {
+	color:#b2b2b2; 
+	text-decoration:none;
+	padding: 0 25px;
+	}
+#footer #block1 ul li a:hover {
+	text-decoration:none; 
+	color: white;
+	background: #1e1e1e;
+	border: 5px solid #1e1e1e;
+	-webkit-border-radius: 4px; /* Safari and Chrome */
+	-khtml-border-radius: 4px;    /* Konqueror */
+	-moz-border-radius: 4px; /* Firefox */
+	border-radius: 5px;
+	padding: 0 20px;
+	}
+
+#footer #block2 p {
+	color: #727272;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	text-align: justify;
+	line-height: 22px;
+	}
+
+#block1 {
+	margin: 10px 0 30px 220px;
+	float: left;
+	width: 200px;
+	}
+#block2 {
+	margin: 10px 0 30px 0;
+	float: left;
+	width: 650px;
+	}
+#block3 {
+	margin: 10px 0 30px 0;
+	float: left;
+	width: 270px;
+	}
+
+::-webkit-scrollbar {
+    width: 12px;
+    -webkit-box-shadow: inset 0 0 6px rgba(192,192,192,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(192,192,192,0.1); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(192,192,192,0.3); 
+}
+
+::-webkit-scrollbar-corner{
+	border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(192,192,192,0.3);
+}
+
+::-webkit-resizer { 
+	border-radius:10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(192,192,192,0.3);
+}
+
+
+
